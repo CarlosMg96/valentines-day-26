@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Signerica";
+    src: url("./Signerica_Fat.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Signerica";
+    src: url("./Signerica_Medium.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
