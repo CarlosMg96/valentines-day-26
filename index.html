@@ -9,12 +9,39 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="container">
-      <h6 id="friend_name">
-        <span class="handwrite"></span>
-      </h6>
-    </div>
+    <button class="nav-arrow nav-arrow-left" aria-label="Anterior" style="display:none;">&#8592;</button>
+    <main class="timeline">
+      <!-- Sección 1: Nombre y visuales -->
+      <section class="timeline-section" id="section-name" data-aos="fade-right" data-aos-duration="1200">
+        <div class="name-visuals">
+          <h6 id="friend_name">
+            <span class="handwrite"></span>
+          </h6>
+          <div class="visuals" data-aos="zoom-in" data-aos-delay="600">
+            <span class="visual-heart">❤️</span>
+            <span class="visual-flower">🌸</span>
+            <span class="visual-star">✨</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección 2: Galería de momentos -->
+      <section class="timeline-section gallery-section" id="section-moments" data-aos="fade-left" data-aos-duration="1200">
+        <div class="gallery-track">
+          <!-- Las imágenes personalizadas se insertarán aquí por JS -->
+        </div>
+      </section>
+
+      <!-- Sección 3: Mensaje final -->
+      <section class="timeline-section" id="section-message" data-aos="fade-right" data-aos-duration="1200">
+        <div class="final-message">
+          <!-- Mensaje personalizado por JS -->
+        </div>
+      </section>
+    </main>
+    <button class="nav-arrow nav-arrow-right" aria-label="Siguiente">&#8594;</button>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/floating-hearts.js"></script>
     <script src="js/scripts.js"></script>
     <script>
       AOS.init();

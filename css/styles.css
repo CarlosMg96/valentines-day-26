@@ -1,3 +1,200 @@
+/* Corazones flotando de fondo */
+.floating-hearts-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+.floating-heart {
+    position: absolute;
+    bottom: -40px;
+    font-size: 2.2em;
+    opacity: 0.45;
+    animation: float-heart 8s linear infinite;
+    will-change: transform, opacity;
+    user-select: none;
+}
+@keyframes float-heart {
+    0% {
+        transform: translateY(0) scale(1) rotate(-10deg);
+        opacity: 0.45;
+    }
+    60% {
+        opacity: 0.7;
+        transform: translateY(-60vh) scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: translateY(-110vh) scale(0.9) rotate(-8deg);
+        opacity: 0;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Flechas de navegación horizontal */
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background: rgba(255,255,255,0.85);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 2em;
+    color: #FF6F91;
+    box-shadow: 0 2px 8px #deb0d055;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    outline: none;
+    user-select: none;
+}
+.nav-arrow-left {
+    left: 18px;
+}
+.nav-arrow-right {
+    right: 18px;
+}
+.nav-arrow:active {
+    background: #FF6F91;
+    color: #fff;
+}
+@media (max-width: 700px) {
+    .nav-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1.3em;
+        left: 6px;
+        right: 6px;
+    }
+}
+html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+}
+.timeline {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+    min-width: 100vw;
+    width: max-content;
+    scroll-snap-type: x mandatory;
+}
+.timeline-section {
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+.gallery-section {
+    width: 100vw;
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Timeline layout */
+.timeline {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6vh;
+    padding: 0 0 4vh 0;
+}
+
+.timeline-section {
+    width: 100vw;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    box-sizing: border-box;
+}
+
+.name-visuals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.visuals {
+    display: flex;
+    gap: 1.2em;
+    font-size: 2.2em;
+}
+
+.visual-heart { color: #FF6F91; }
+.visual-flower { color: #e1aaff; }
+.visual-star { color: #ffe066; }
+
+/* Galería horizontal */
+.gallery-section {
+    overflow-x: auto;
+    overflow-y: visible;
+    width: 100vw;
+    padding: 2em 0;
+}
+.gallery-track {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    min-width: 600px;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-photo {
+    min-width: 220px;
+    max-width: 260px;
+    aspect-ratio: 3/4;
+    border: 6px solid #deb0d0;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #deb0d055;
+    background: #fff;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+}
+.gallery-photo[data-aos] {
+    opacity: 0;
+    transform: translateX(80px);
+}
+.gallery-photo.aos-animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Mensaje final */
+.final-message {
+    font-size: 1.5em;
+    color: #444;
+    background: rgba(255,255,255,0.8);
+    border-radius: 16px;
+    padding: 2em 2.5em;
+    box-shadow: 0 2px 18px #deb0d055;
+    max-width: 600px;
+    text-align: center;
+    font-family: 'Arial',sans-serif;
+}
 body{
     font-family: Arial, sans-serif;
     background: #EEAECA;
@@ -18,6 +215,7 @@ h6 {
     font-family: 'Signerica';
     color: #FF6F91;
     font-size: 4em;
+    font-weight: 800;
     text-align: center;
     line-height: 1.4;
 }
@@ -28,6 +226,21 @@ h6 {
     display: inline-block;
     padding: 0.4em 0;     
     padding-right: 0.2em;
+}
+
+@media (max-width: 700px) {
+    .gallery-track {
+        min-width: 0;
+        gap: 1em;
+    }
+    .gallery-photo {
+        min-width: 120px;
+        max-width: 160px;
+    }
+    .final-message {
+        font-size: 1.1em;
+        padding: 1.2em 0.7em;
+    }
 }
 
 .handwrite::after {
