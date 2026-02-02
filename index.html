@@ -65,25 +65,39 @@
       </div>
     </div>
   </div>
+  <div class="nav-buttons">
+    <button id="prevBtn" class="nav-btn" aria-label="Previous Section">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
+    <button id="nextBtn" class="nav-btn" aria-label="Next Section">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+  </div>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/floating-hearts.js"></script>
   <script src="js/scripts.js"></script>
   <script>
     AOS.init({
-      once: true,
-      duration: 800,
-      easing: "ease-in-out",
-      disableMutationObserver: false,
+      once: false, // Changed to false so animations replay
+      mirror: true, // Allow animating out
+      duration: 1000,
+      easing: "ease-out-cubic", // Smoother easing
+      anchorPlacement: 'top-bottom',
     });
-    AOS.refresh();
-    document.querySelector(".container").addEventListener("scroll", () => {
+
+    // Refresh AOS on load and resize
+    window.addEventListener('load', AOS.refresh);
+    window.addEventListener('resize', AOS.refresh);
+
+    // Ensure AOS updates on container scroll
+    document.querySelector('.container').addEventListener('scroll', () => {
       AOS.refresh();
-    });
-    // Forzar scroll al inicio al cargar
-    document.addEventListener("DOMContentLoaded", function () {
-      document
-        .querySelector(".container")
-        .scrollTo({ top: 0, behavior: "auto" });
     });
   </script>
 </body>

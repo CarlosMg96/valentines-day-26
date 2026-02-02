@@ -272,3 +272,53 @@ p {
     background: rgba(255, 255, 255, 0.5);
     border-radius: 4px;
 }
+/* Navigation Buttons */
+.nav-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.nav-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #be2e58;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-btn:hover {
+    background: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(190, 46, 88, 0.2);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+.nav-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hide scrollbar completely for cleaner look but allow scroll */
+.container {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+.container::-webkit-scrollbar { 
+    display: none; /* Chrome/Safari */
+}
