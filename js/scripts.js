@@ -1,6 +1,7 @@
 
 const params = new URLSearchParams(window.location.search);
 const friend = params.get('friend') || 'Amigo';
+const friendKey = friend.toLowerCase();
 
 const span = document.querySelector('#friend_name .handwrite');
 
@@ -32,126 +33,185 @@ switch (friend.toLowerCase()) {
 span.textContent = text;
 
 // Animación tipo ruleta para los íconos de .visuals
-document.addEventListener('DOMContentLoaded', () => {
-    const iconSets = [
-        {
-            selector: '.visual-heart',
-            symbols: ['❤️','💖','💘','💝','💕','💓','💗','💞','💟','🧡','💜','💙','💚','💛','🩷','🩵','🩶','🖤','🤍','🤎']
-        },
-        {
-            selector: '.visual-flower',
-            symbols: ['🌸','🌹','🌺','🌻','🌼','🌷','💐','🪻','🥀','🪷','🌱','🌿','🍀','🍃','🍂','🍁']
-        },
-        {
-            selector: '.visual-star',
-            symbols: ['✨','⭐','🌟','💫','🌠','🟊','🟉','✴️','✳️','❇️','🔆','🔅','🌞','🌙']
-        }
+// Qualities Data Definition (moved up)
+const qualities = {
+    mayrelin: [
+        { icon: '🌟', title: 'Resiliencia', desc: 'Tu fuerza inspira.' },
+        { icon: '😊', title: 'Sonrisa', desc: 'Ilumina cualquier lugar.' },
+        { icon: '🤝', title: 'Lealtad', desc: 'Siempre estás ahí.' }
+    ],
+    ariadna: [
+        { icon: '🍯', title: 'Dulzura', desc: 'Tratas a todos con amor.' },
+        { icon: '👂', title: 'Escucha', desc: 'Sabes entender sin juzgar.' },
+        { icon: '💖', title: 'Corazón', desc: 'Puro y generoso.' }
+    ],
+    shema: [
+        { icon: '⚡', title: 'Energía', desc: 'Incansable y vibrante.' },
+        { icon: '🎉', title: 'Diversión', desc: 'El alma de la fiesta.' },
+        { icon: '🛡️', title: 'Lealtad', desc: 'Un amigo de verdad.' }
+    ],
+    sana: [
+        { icon: '🕊️', title: 'Paz', desc: 'Transmites calma.' },
+        { icon: '🧠', title: 'Sabiduría', desc: 'Consejos que valen oro.' },
+        { icon: '✨', title: 'Confianza', desc: 'Se puede contar contigo.' }
+    ],
+    momo: [
+        { icon: '🎨', title: 'Creatividad', desc: 'Ves el mundo diferente.' },
+        { icon: '🔥', title: 'Chispa', desc: 'Siempre ocurrente.' },
+        { icon: '🌈', title: 'Alegría', desc: 'Contagias felicidad.' }
+    ],
+    greidy: [
+        { icon: '☀️', title: 'Mi Sol', desc: 'La luz de mis días.' },
+        { icon: '❤️', title: 'Amor', desc: 'Un sentimiento eterno.' },
+        { icon: '🌹', title: 'Belleza', desc: 'Por dentro y por fuera.' }
+    ],
+    default: [
+        { icon: '✨', title: 'Autenticidad', desc: 'Eres única/o.' },
+        { icon: '💫', title: 'Bondad', desc: 'Tu corazón es noble.' },
+        { icon: '🚀', title: 'Pasión', desc: 'Haces todo con ganas.' }
+    ]
+};
+
+// Define friendQualities early so slot animation can use it
+const friendQualities = qualities[friendKey] || qualities['default'];
+
+// Slot Machine Animation Logic
+const visualSection = document.getElementById('section-2');
+const iconElements = [
+    document.querySelector('.visual-heart'),
+    document.querySelector('.visual-flower'),
+    document.querySelector('.visual-star')
+];
+
+// Symbols pool for the shuffling effect
+const allSymbols = ['❤️','💖','🌸','🌹','✨','⭐','🌟','🍯','⚡','🕊️','🎨','☀️'];
+
+let animationPlayed = false;
+
+function runSlotAnimation() {
+    if (animationPlayed) return;
+    animationPlayed = true;
+
+    // Determine target icons from the friend's qualities
+    const targets = [
+        friendQualities[0]?.icon || '❤️',
+        friendQualities[1]?.icon || '🌸',
+        friendQualities[2]?.icon || '✨'
     ];
 
-    iconSets.forEach(({selector, symbols}, idx) => {
-        const el = document.querySelector(selector);
+    iconElements.forEach((el, index) => {
         if (!el) return;
-        let count = 0;
-        const max = 16 + Math.floor(Math.random()*8) + idx*4; // cada uno para y empieza diferente
-        const original = el.textContent;
+        
+        const targetSymbol = targets[index];
+        const duration = 2000 + (index * 1000); // 2s, 3s, 4s duration
+        const intervalTime = 100;
+        let elapsed = 0;
+
         const interval = setInterval(() => {
-            el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
-            count++;
-            if (count >= max) {
+            el.textContent = allSymbols[Math.floor(Math.random() * allSymbols.length)];
+            elapsed += intervalTime;
+
+            if (elapsed >= duration) {
                 clearInterval(interval);
-                setTimeout(() => {
-                    el.textContent = original;
-                }, 200);
+                el.textContent = targetSymbol;
+                
+                // Add a pop effect
+                el.style.transform = "scale(1.5)";
+                el.style.transition = "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+                setTimeout(() => el.style.transform = "scale(1)", 300);
+
+                // If this is the last icon, trigger auto-scroll
+                if (index === iconElements.length - 1) {
+                    setTimeout(() => {
+                        scrollToSection(currentSection + 1);
+                    }, 1200); // Wait 1.2s after animation finishes before scrolling
+                }
             }
-        }, 460 + idx*20);
+        }, intervalTime);
     });
-});
+}
+// Observe section-2 for triggering animation
+const slotObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !animationPlayed) {
+            runSlotAnimation();
+        }
+    });
+}, { threshold: 0.6 });
+
+if (visualSection) {
+    slotObserver.observe(visualSection);
+}
+
+// Qualities Populate (Simple render now)
+const qualitiesGrid = document.querySelector('.qualities-grid');
+qualitiesGrid.innerHTML = friendQualities.map((q, i) => `
+    <div class="quality-card" data-aos="flip-left" data-aos-delay="${i * 200}">
+        <div class="quality-icon">${q.icon}</div>
+        <h3 class="quality-title">${q.title}</h3>
+        <p class="quality-desc">${q.desc}</p>
+    </div>
+`).join('');
 
 const container = document.querySelector('.container');
 const sections = document.querySelectorAll('.content');
 
+
 let currentSection = 0;
-let isScrolling = false;
+
+// Button controls
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
 function scrollToSection(index) {
     if (index < 0 || index >= sections.length) return;
-
-    isScrolling = true;
-    currentSection = index;
-
-    const targetPosition = sections[index].offsetTop;
-
-    container.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-    });
-
-    setTimeout(() => {
-        isScrolling = false;
-        // Disparar AOS refresh después del scroll
-        if (typeof AOS !== 'undefined') {
-            AOS.refreshHard();
-        }
-    }, 600);
+    sections[index].scrollIntoView({ behavior: 'smooth' });
 }
 
-// Scroll con rueda
-window.addEventListener('wheel', (e) => {
-    if (isScrolling) return;
-    
-    // Solo prevenir si estamos en scroll manual personalizado
-    const targetSection = e.deltaY > 0 ? currentSection + 1 : currentSection - 1;
-    if (targetSection >= 0 && targetSection < sections.length) {
-        e.preventDefault();
-        if (e.deltaY > 0) {
-            scrollToSection(currentSection + 1);
-        } else {
-            scrollToSection(currentSection - 1);
+prevBtn.addEventListener('click', () => {
+    scrollToSection(currentSection - 1);
+});
+
+nextBtn.addEventListener('click', () => {
+    scrollToSection(currentSection + 1);
+});
+
+// Update currentSection based on visibility
+const observerOptions = {
+    root: container,
+    threshold: 0.5 // Consider active if >50% visible
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Find index of this section
+            const index = Array.from(sections).indexOf(entry.target);
+            if (index !== -1) {
+                currentSection = index;
+                // Optional: Disable buttons at ends
+                prevBtn.style.opacity = index === 0 ? '0.5' : '1';
+                prevBtn.style.pointerEvents = index === 0 ? 'none' : 'auto';
+                
+                nextBtn.style.opacity = index === sections.length - 1 ? '0.5' : '1';
+                nextBtn.style.pointerEvents = index === sections.length - 1 ? 'none' : 'auto';
+            }
         }
-    }
-}, { passive: false });
+    });
+}, observerOptions);
 
-// Scroll con teclado
+sections.forEach(section => observer.observe(section));
+
+// Keyboard navigation (optional, native is usually fine but this allows "snapping" logic behavior if desired)
 window.addEventListener('keydown', (e) => {
-    if (isScrolling) return;
-
-    if (e.key === 'ArrowDown') {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault(); // Prevent double scroll if we want strict section navigation
         scrollToSection(currentSection + 1);
-    }
-
-    if (e.key === 'ArrowUp') {
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
         scrollToSection(currentSection - 1);
     }
 });
-
-let touchStartY = 0;
-let touchEndY = 0;
-const swipeThreshold = 50; // sensibilidad del swipe
-
-container.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
-}, { passive: true });
-
-container.addEventListener('touchend', (e) => {
-    touchEndY = e.changedTouches[0].clientY;
-    handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-    if (isScrolling) return;
-
-    const deltaY = touchStartY - touchEndY;
-
-    if (Math.abs(deltaY) < swipeThreshold) return;
-
-    if (deltaY > 0) {
-        // swipe hacia arriba
-        scrollToSection(currentSection + 1);
-    } else {
-        // swipe hacia abajo
-        scrollToSection(currentSection - 1);
-    }
-}
 
 // galería de fotos y mensaje final
 const galleryData = {
@@ -188,21 +248,22 @@ const galleryData = {
 };
 
 const messages = {
-    mayrelin: 'Gracias por cada momento compartido, por tu alegría y tu amistad sincera. ¡Eres una persona increíble!',
-    ariadna: 'Ariadna, tu compañía hace que cada día sea especial. Gracias por tu apoyo y cariño. ¡Feliz San Valentín!',
-    shema: 'Shema, gracias por tu energía y por todos los recuerdos que hemos creado juntos. ¡Te aprecio mucho!',
-    sana: 'Sana, tu amistad es un regalo que valoro cada día. Gracias por estar siempre presente. ¡Feliz día!',
-    momo: 'Momo, cada momento contigo es único. Gracias por tu amistad y por ser tan especial. ¡Feliz San Valentín!',
-    greidy: 'Greidy, tu amor aun te extraño y eres mi solicito, te amo.'
+    mayrelin: 'Mayrelin, tu alegría es contagiosa y tu capacidad para ver lo bueno en todo ilumina los días de quienes te rodean. Gracias por ser esa amiga incondicional con la que siempre se puede contar. ¡Que este día te devuelva todo el cariño que das!',
+    ariadna: 'Ari, tienes un corazón de oro y una dulzura que desarma. Cada charla contigo es un refugio. Gracias por estar ahí, por escuchar y por compartir tu tiempo conmigo. ¡Eres verdaderamente especial!',
+    shema: 'Shema, compañero de mil batallas y risas interminables. Tu energía y lealtad son un regalo. Gracias por todos esos recuerdos épicos y por los que aún nos faltan por crear. ¡Un abrazo enorme en este día!',
+    sana: 'Sana, tu presencia irradia paz y confianza. Valoro profundamente nuestra conexión y la forma en que haces que todo parezca más sencillo. Gracias por tu amistad sincera y duradera.',
+    momo: 'Momo, eres creatividad y chispa pura. No hay momento aburrido contigo. Gracias por pintar mi vida de colores con tu ocurrencias y tu cariño. ¡Nunca cambies esa esencia única!',
+    greidy: 'Greidy, aunque la distancia o el tiempo se interpongan, lo que siento permanece intacto. Eres mi solcito y mi pensamiento constante. Te extraño y te llevo en el corazón, hoy y siempre.'
 };
+
+
 
 // Galería personalizada
 const galleryTrack = document.querySelector('.gallery-track');
-const friendKey = friend.toLowerCase();
 const photos = galleryData[friendKey] || [
-    { src: 'assets/default1.jpg', alt: 'Momento especial' },
-    { src: 'assets/default2.jpg', alt: 'Recuerdo bonito' },
-    { src: 'assets/default3.jpg', alt: 'Día memorable' }
+    { src: 'https://placehold.co/600x800/ffb7b2/ffffff?text=Momento+1', alt: 'Momento especial' },
+    { src: 'https://placehold.co/600x800/ff9a9e/ffffff?text=Momento+2', alt: 'Recuerdo bonito' },
+    { src: 'https://placehold.co/600x800/fad0c4/ffffff?text=Momento+3', alt: 'Día memorable' }
 ];
 galleryTrack.innerHTML = photos.map((photo, i) =>
     `<img class="gallery-photo" src="${photo.src}" alt="${photo.alt}" data-aos="fade-left" data-aos-delay="${i*400}" data-aos-duration="1200">`
@@ -211,3 +272,5 @@ galleryTrack.innerHTML = photos.map((photo, i) =>
 // Mensaje final personalizado
 const finalMessage = document.querySelector('.final-message');
 finalMessage.textContent = messages[friendKey] || 'Gracias por todos los momentos vividos y por tu amistad. ¡Feliz Día de San Valentín!';
+
+

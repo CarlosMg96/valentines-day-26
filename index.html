@@ -1,96 +1,105 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Valentine's Day</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/fonts/fonts.css" />
-    <link rel="stylesheet" href="css/floating-hearts.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div
-        id="section-1"
-        class="content"
-        data-aos="fade"
-        data-aos-duration="800"
-      >
-        <h6 id="friend_name">
-          <span class="handwrite"></span>
-        </h6>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine's Day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="css/floating-hearts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="section-1" class="content" data-aos="fade" data-aos-duration="800">
+      <h1 id="friend_name">
+        <span class="handwrite"></span>
+      </h1>
+    </div>
+
+    <div id="section-quote" class="content" data-aos="fade-up" data-aos-duration="1000">
+      <div class="quote-container">
+        <p class="quote-text">"La amistad no se trata de quién vino antes o de quién te conoce desde hace más tiempo. Se
+          trata de quién llegó y nunca se fue."</p>
       </div>
-      <div class="content" data-aos="fade-up" data-aos-duration="800">
-        <div class="visuals" data-aos="zoom-in" data-aos-delay="600">
-          <p>Hoy es un día especial para celebrar la amistad</p>
-        </div>
+    </div>
+    <div id="section-2" class="content" data-aos="fade-up" data-aos-duration="800">
+      <div class="visuals-content" data-aos="zoom-in" data-aos-delay="600">
+        <span class="visual-heart">❤️</span>
+        <span class="visual-flower">🌸</span>
+        <span class="visual-star">✨</span>
       </div>
-      <div
-        id="section-2"
-        class="content"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        <div class="visuals-content" data-aos="zoom-in" data-aos-delay="600">
-          <span class="visual-heart">❤️</span>
-          <span class="visual-flower">🌸</span>
-          <span class="visual-star">✨</span>
-        </div>
+    </div>
+
+    <div id="section-qualities" class="content" data-aos="fade-up" data-aos-duration="800">
+      <div class="qualities-grid">
+        <!-- Dynamic Qualities -->
       </div>
-      <div
-        id="section-3"
-        class="content"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        <div
-          class="timeline-section gallery-section"
-          id="section-moments"
-          data-aos="fade-left"
-          data-aos-duration="1200"
-        >
-          <div class="gallery-track">
-            <!-- Las imágenes personalizadas se insertarán aquí por JS -->
-          </div>
-        </div>
-      </div>
-      <div
-        id="section-4"
-        class="content"
-        data-aos="fade-up"
-        data-aos-duration="800"
-      >
-        <div
-          class="timeline-section"
-          id="section-message"
-          data-aos="fade-right"
-          data-aos-duration="1200"
-        >
-          <div class="final-message"></div>
+    </div>
+    <div id="section-3" class="content" data-aos="fade-up" data-aos-duration="800">
+      <div class="timeline-section gallery-section" id="section-moments" data-aos="fade-left" data-aos-duration="1200">
+        <div class="gallery-track">
+          <!-- Las imágenes personalizadas se insertarán aquí por JS -->
         </div>
       </div>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/floating-hearts.js"></script>
-    <script src="js/scripts.js"></script>
-    <script>
-      AOS.init({
-        once: true,
-        duration: 800,
-        easing: "ease-in-out",
-        disableMutationObserver: false,
-      });
+    <div id="section-4" class="content" data-aos="fade-up" data-aos-duration="800">
+      <div class="timeline-section" id="section-message" data-aos="fade-right" data-aos-duration="1200">
+        <div class="final-message"></div>
+      </div>
+    </div>
+    <div id="section-5" class="content" data-aos="fade-up" data-aos-duration="800">
+      <div class="timeline-section" data-aos="fade-right" data-aos-duration="1200">
+        <p>Gracias por tu amistad</p>
+        <p>Te quiero mucho</p>
+        <p>Feliz día de San Valentín</p>
+        <p>Con cariño tu amigo</p>
+        <h6><span class="handwrite">CarlosMg96</span></h6>
+      </div>
+    </div>
+  </div>
+  <div class="nav-buttons">
+    <button id="prevBtn" class="nav-btn" aria-label="Previous Section">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
+    <button id="nextBtn" class="nav-btn" aria-label="Next Section">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+  </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/floating-hearts.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+    AOS.init({
+      once: false, // Changed to false so animations replay
+      mirror: true, // Allow animating out
+      duration: 1000,
+      easing: "ease-out-cubic", // Smoother easing
+      anchorPlacement: 'top-bottom',
+    });
+
+    // Refresh AOS on load and resize
+    window.addEventListener('load', AOS.refresh);
+    window.addEventListener('resize', AOS.refresh);
+
+    // Ensure AOS updates on container scroll
+    document.querySelector('.container').addEventListener('scroll', () => {
       AOS.refresh();
-      document.querySelector(".container").addEventListener("scroll", () => {
-        AOS.refresh();
-      });
-      // Forzar scroll al inicio al cargar
-      document.addEventListener("DOMContentLoaded", function () {
-        document
-          .querySelector(".container")
-          .scrollTo({ top: 0, behavior: "auto" });
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
