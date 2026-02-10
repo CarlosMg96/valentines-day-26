@@ -37,22 +37,22 @@ span.textContent = text;
 const qualities = {
     mayrelin: [
         { icon: '🌟', title: 'Resiliencia', desc: 'Tu fuerza inspira.' },
-        { icon: '😊', title: 'Sonrisa', desc: 'Ilumina cualquier lugar.' },
-        { icon: '🤝', title: 'Lealtad', desc: 'Siempre estás ahí.' }
+        { icon: '💖', title: 'Corazón', desc: 'Puro y generoso.' },
+        { icon: '🔥', title: 'Chispa', desc: 'Siempre ocurrente.' },
     ],
     ariadna: [
-        { icon: '🍯', title: 'Dulzura', desc: 'Tratas a todos con amor.' },
+        { icon: '🧠', title: 'Sabiduría', desc: 'Consejos que valen oro.' },
         { icon: '👂', title: 'Escucha', desc: 'Sabes entender sin juzgar.' },
-        { icon: '💖', title: 'Corazón', desc: 'Puro y generoso.' }
+         { icon: '🛡️', title: 'Lealtad', desc: 'Un amigo de verdad.' }
     ],
     shema: [
         { icon: '⚡', title: 'Energía', desc: 'Incansable y vibrante.' },
+        { icon: '🌟', title: 'Resiliencia', desc: 'Tu fuerza inspira.' },
         { icon: '🎉', title: 'Diversión', desc: 'El alma de la fiesta.' },
-        { icon: '🛡️', title: 'Lealtad', desc: 'Un amigo de verdad.' }
     ],
     sana: [
+        { icon: '🍯', title: 'Dulzura', desc: 'Tratas a todos con amor.' },
         { icon: '🕊️', title: 'Paz', desc: 'Transmites calma.' },
-        { icon: '🧠', title: 'Sabiduría', desc: 'Consejos que valen oro.' },
         { icon: '✨', title: 'Confianza', desc: 'Se puede contar contigo.' }
     ],
     momo: [
@@ -216,19 +216,19 @@ window.addEventListener('keydown', (e) => {
 // galería de fotos y mensaje final
 const galleryData = {
     mayrelin: [
-        { src: 'assets/mayrelin1.jpg', alt: 'Mayrelin en la playa' },
-        { src: 'assets/mayrelin2.jpg', alt: 'Risa de Mayrelin' },
-        { src: 'assets/mayrelin3.jpg', alt: 'Momento especial' }
+        { src: 'assets/images/mayrelin_1.jpg', alt: 'Mayrelin en la playa' },
+        { src: 'assets/images/mayrelin_2.jpg', alt: 'Risa de Mayrelin' },
+        { src: 'assets/images/shrek_2.jpeg', alt: 'Momento especial' }
     ],
     ariadna: [
-        { src: 'assets/ariadna1.jpg', alt: 'Ariadna en el parque' },
-        { src: 'assets/ariadna2.jpg', alt: 'Ariadna y su mascota' },
-        { src: 'assets/ariadna3.jpg', alt: 'Día inolvidable' }
+        { src: 'assets/images/ariadna_1.jpeg', alt: 'Ariadna en el parque' },
+        { src: 'assets/images/ariadna_2.jpeg', alt: 'Ariadna y su mascota' },
+        { src: 'assets/images/ariadna_3.jpeg', alt: 'Día inolvidable' }
     ],
     shema: [
-        { src: 'assets/shema1.jpg', alt: 'Shema sonriendo' },
-        { src: 'assets/shema2.jpg', alt: 'Aventura con Shema' },
-        { src: 'assets/shema3.jpg', alt: 'Recuerdo especial' }
+        { src: 'assets/images/shema_1.jpeg', alt: 'Shema sonriendo' },
+        { src: 'assets/images/shema_2.jpeg', alt: 'Aventura con Shema' },
+        { src: 'assets/images/shema_3.jpeg', alt: 'Otra momento con la Shema' }
     ],
     sana: [
         { src: 'assets/images/sana_1.jpeg', alt: 'Sana en la fiesta' },
