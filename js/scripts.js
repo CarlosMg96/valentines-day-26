@@ -226,9 +226,9 @@ const galleryData = {
         { src: 'assets/images/ariadna_3.jpeg', alt: 'Día inolvidable' }
     ],
     shema: [
-        { src: 'assets/images/shema_1.jpeg', alt: 'Planta de la Shema' },
-        { src: 'assets/images/shema_2.jpeg', alt: 'La Shema' },
-        { src: 'assets/images/shema_3.jpeg', alt: 'Tortuga de la Shema' }
+        { src: 'assets/images/shema_1.jpg', alt: 'Planta de la Shema' },
+        { src: 'assets/images/shema_2.jpg', alt: 'La Shema' },
+        { src: 'assets/images/shema_3.jpg', alt: 'Tortuga de la Shema' }
     ],
     sana: [
         { src: 'assets/images/sana_1.jpeg', alt: 'Sana en la fiesta' },
