@@ -216,19 +216,19 @@ window.addEventListener('keydown', (e) => {
 // galería de fotos y mensaje final
 const galleryData = {
     mayrelin: [
-        { src: 'assets/images/mayrelin_1.jpg', alt: 'Mayrelin en la playa' },
+        { src: 'assets/images/mayrelin_1.jpg', alt: 'Momento Mayrelin' },
         { src: 'assets/images/mayrelin_2.jpg', alt: 'Risa de Mayrelin' },
         { src: 'assets/images/shrek_2.jpeg', alt: 'Momento especial' }
     ],
     ariadna: [
-        { src: 'assets/images/ariadna_1.jpeg', alt: 'Ariadna en el parque' },
-        { src: 'assets/images/ariadna_2.jpeg', alt: 'Ariadna y su mascota' },
+        { src: 'assets/images/ariadna_1.jpeg', alt: 'Ari en el atardecer' },
+        { src: 'assets/images/ariadna_2.jpeg', alt: 'Ariadna y yo' },
         { src: 'assets/images/ariadna_3.jpeg', alt: 'Día inolvidable' }
     ],
     shema: [
-        { src: 'assets/images/shema_1.jpeg', alt: 'Shema sonriendo' },
-        { src: 'assets/images/shema_2.jpeg', alt: 'Aventura con Shema' },
-        { src: 'assets/images/shema_3.jpeg', alt: 'Otra momento con la Shema' }
+        { src: 'assets/images/shema_1.jpeg', alt: 'Planta de la Shema' },
+        { src: 'assets/images/shema_2.jpeg', alt: 'La Shema' },
+        { src: 'assets/images/shema_3.jpeg', alt: 'Tortuga de la Shema' }
     ],
     sana: [
         { src: 'assets/images/sana_1.jpeg', alt: 'Sana en la fiesta' },
@@ -248,9 +248,9 @@ const galleryData = {
 };
 
 const messages = {
-    mayrelin: 'Mayrelin, tu alegría es contagiosa y tu capacidad para ver lo bueno en todo ilumina los días de quienes te rodean. Gracias por ser esa amiga incondicional con la que siempre se puede contar. ¡Que este día te devuelva todo el cariño que das!',
+    mayrelin: 'Mayrelin, tu alegría es contagiosa y tu capacidad para ver lo bueno en todo ilumina los días de quienes te rodean. Gracias por ser esa amiga incondicional con la que siempre se puede contar. ¡Que este día te devuelva todo el cariño que das!       PD: ¿Si está bien escrito tu nombre?',
     ariadna: 'Ari, tienes un corazón de oro y una dulzura que desarma. Cada charla contigo es un refugio. Gracias por estar ahí, por escuchar y por compartir tu tiempo conmigo. ¡Eres verdaderamente especial!',
-    shema: 'Shema, compañero de mil batallas y risas interminables. Tu energía y lealtad son un regalo. Gracias por todos esos recuerdos épicos y por los que aún nos faltan por crear. ¡Un abrazo enorme en este día!',
+    shema: 'Shema, compañera de mil batallas y risas interminables. Tu energía y lealtad son un regalo. Gracias por todos esos recuerdos épicos y por los que aún nos faltan por crear. ¡Un abrazo enorme en este día!',
     sana: 'Sana, tu presencia irradia paz y confianza. Valoro profundamente nuestra conexión y la forma en que haces que todo parezca más sencillo. Gracias por tu amistad sincera y duradera.',
     momo: 'Momo, eres creatividad y chispa pura. No hay momento aburrido contigo. Gracias por pintar mi vida de colores con tu ocurrencias y tu cariño. ¡Nunca cambies esa esencia única!',
     greidy: 'Greidy, aunque la distancia o el tiempo se interpongan, lo que siento permanece intacto. Eres mi solcito y mi pensamiento constante. Te extraño y te llevo en el corazón, hoy y siempre.'
