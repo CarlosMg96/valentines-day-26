@@ -26,6 +26,12 @@ switch (friend.toLowerCase()) {
         case 'greidy':
                 text = 'Greidy';
                 break;
+        case 'alberto':
+                text = 'Amorcito mío';
+                document.getElementById('phrase').textContent = '"Contigo todo es más ligero, más bonito y más verdadero."';
+                document.getElementById('credits').style.display = 'none'; // Oculta créditos para Alberto
+                const elemento = document.getElementById("personalized-credits").style.removeProperty("display");
+                break;
         default:
                 text = `${friend}`;
 }
@@ -64,6 +70,11 @@ const qualities = {
         { icon: '☀️', title: 'Mi Sol', desc: 'La luz de mis días.' },
         { icon: '❤️', title: 'Amor', desc: 'Un sentimiento eterno.' },
         { icon: '🌹', title: 'Belleza', desc: 'Por dentro y por fuera.' }
+    ],
+    alberto: [
+        { icon: '🌿', title: 'Paz', desc: 'Sensación de calma interna.' },
+        { icon: '🫶🏻', title: 'Seguridad', desc: 'Un espacio donde sentirse seguro.' },
+        { icon: '🫂', title: 'Sinceridad', desc: 'Hablar de todo y nada al mismo tiempo.' }
     ],
     default: [
         { icon: '✨', title: 'Autenticidad', desc: 'Eres única/o.' },
@@ -244,7 +255,13 @@ const galleryData = {
         { src: 'assets/images/greidy_1.jpeg', alt: 'Greidy en la montaña' },
         { src: 'assets/images/greidy_2.jpeg', alt: 'Greidy y su sonrisa' },
         { src: 'assets/images/greidy_3.jpeg', alt: 'Recuerdo con Greidy' }
+    ],
+    alberto: [
+        { src: 'assets/images/alberto_1.jpg', alt: 'Alberto en la montaña' },
+        { src: 'assets/images/alberto_2.jpg', alt: 'Alberto y su sonrisa' },
+        { src: 'assets/images/alberto_3.jpg', alt: 'Recuerdo con Alberto' }
     ]
+
 };
 
 const messages = {
@@ -253,7 +270,8 @@ const messages = {
     shema: 'Shema, compañera de mil batallas y risas interminables. Tu energía y lealtad son un regalo. Gracias por todos esos recuerdos épicos y por los que aún nos faltan por crear. ¡Un abrazo enorme en este día!',
     sana: 'Sana, tu presencia irradia paz y confianza. Valoro profundamente nuestra conexión y la forma en que haces que todo parezca más sencillo. Gracias por tu amistad sincera y duradera.',
     momo: 'Momo, eres creatividad y chispa pura. No hay momento aburrido contigo. Gracias por pintar mi vida de colores con tu ocurrencias y tu cariño. ¡Nunca cambies esa esencia única!',
-    greidy: 'Greidy, aunque la distancia o el tiempo se interpongan, lo que siento permanece intacto. Eres mi solcito y mi pensamiento constante. Te extraño y te llevo en el corazón, hoy y siempre.'
+    greidy: 'Greidy, aunque la distancia o el tiempo se interpongan, lo que siento permanece intacto. Eres mi solcito y mi pensamiento constante. Te extraño y te llevo en el corazón, hoy y siempre.',
+    alberto: 'Gracias por todos los momentos vividos y por tu amor. ¡Feliz Día de San Valentín!',
 };
 
 
