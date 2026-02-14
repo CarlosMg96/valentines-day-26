@@ -267,7 +267,7 @@ const galleryData = {
 const messages = {
     mayrelin: 'Mayrelin, tu alegría es contagiosa y tu capacidad para ver lo bueno en todo ilumina los días de quienes te rodean. Gracias por ser esa amiga incondicional con la que siempre se puede contar. ¡Que este día te devuelva todo el cariño que das!       PD: ¿Si está bien escrito tu nombre?',
     ariadna: 'Ari, tienes un corazón de oro y una dulzura que desarma. Cada charla contigo es un refugio. Gracias por estar ahí, por escuchar y por compartir tu tiempo conmigo. ¡Eres verdaderamente especial!',
-    shema: 'Shema, compañera de mil batallas y risas interminables. Tu energía y lealtad son un regalo. Gracias por todos esos recuerdos épicos y por los que aún nos faltan por crear. ¡Un abrazo enorme en este día!',
+    shema: 'Shema, compañera de mil batallas y risas interminables. Aún tengo muy presente los recuerdos épicos que compartimos, algo que no olvidaré jamás el la vez que llegaste a mi casa en 5 min. Así que solo diré gracias por esos momentos. ¡Un abrazo enorme en este día!',
     sana: 'Sana, tu presencia irradia paz y confianza. Valoro profundamente nuestra conexión y la forma en que haces que todo parezca más sencillo. Gracias por tu amistad sincera y duradera.',
     momo: 'Momo, eres creatividad y chispa pura. No hay momento aburrido contigo. Gracias por pintar mi vida de colores con tu ocurrencias y tu cariño. ¡Nunca cambies esa esencia única!',
     greidy: 'Greidy, aunque la distancia o el tiempo se interpongan, lo que siento permanece intacto. Eres mi solcito y mi pensamiento constante. Te extraño y te llevo en el corazón, hoy y siempre.',
